@@ -427,6 +427,7 @@ img{max-width:100%;display:block}
   .hero-badge{display:none}
 }
 @media (max-width:600px){
+  .hero{padding:80px 0 60px}
   .svc-grid,.team-grid,.proc-grid,.test-grid,.blog-grid,.price-grid,.stats-grid,.k-grid,.footer-grid{grid-template-columns:1fr}
   .section{padding:60px 0}
   .price.pop{transform:none}
@@ -441,5 +442,5 @@ img{max-width:100%;display:block}
   .footer a{display:inline-block;padding:4px 0}
   .footer h4{margin-bottom:14px}
   .socials{justify-content:center}
-  .hero-grid{gap:30px;padding:100px 0 40px}
+  .hero-grid{gap:30px;padding:60px 0 40px}
 }
