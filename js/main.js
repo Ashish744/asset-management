@@ -474,7 +474,7 @@
   });
   // Dashboard: logout, sidebar toggle, section switching
   const logout = document.getElementById('logoutBtn');
-  if(logout) logout.addEventListener('click', (e)=>{e.preventDefault(); localStorage.clear(); location.href='/login.html';});
+  if(logout) logout.addEventListener('click', (e)=>{e.preventDefault(); localStorage.clear(); location.href='./login.html';});
   const mobToggle = document.querySelector('.mob-toggle');
   const side = document.querySelector('.side');
   if(mobToggle && side) mobToggle.addEventListener('click', () => side.classList.toggle('open'));

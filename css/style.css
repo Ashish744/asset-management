@@ -412,7 +412,7 @@ img{max-width:100%;display:block}
 @media (max-width:960px){
   .hero-grid,.about-grid,.contact-grid,.login-wrap{grid-template-columns:1fr;gap:40px}
   .svc-grid,.team-grid,.proc-grid,.test-grid,.blog-grid,.price-grid,.stats-grid,.k-grid{grid-template-columns:1fr 1fr}
-  .footer-grid{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr}
   .login-side{padding:40px;min-height:240px}
   .login-form{padding:40px 24px}
   .nav-links{position:fixed;top:70px;right:-100%;background:#fff;flex-direction:column;padding:30px;width:260px;height:calc(100vh - 70px);box-shadow:var(--shadow);gap:20px;transition:.4s;align-items:flex-start}
@@ -439,8 +439,8 @@ img{max-width:100%;display:block}
   .nav-cta{gap:8px}
   .footer{padding:50px 0 20px}
   .footer-grid{gap:28px;margin-bottom:28px}
-  .footer-grid > div{text-align:center}
-  .footer a{display:inline-block;padding:4px 0}
+  .footer-grid > div{text-align:left}
+  .footer a{display:block;padding:8px 0}
   .footer h4{margin-bottom:14px}
   .socials{justify-content:center}
   .hero-grid{gap:30px;padding:60px 0 40px}
