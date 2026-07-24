@@ -1,4 +1,4 @@
- /* STACKLY — Asset Management */
+﻿ /* STACKLY â€” Asset Management */
 :root{
   --bg:#0b1220;--bg2:#0f172a;--surface:#111a2e;--card:#141e36;
   --ink:#0b1220;--text:#0f172a;--muted:#5b6b85;--line:#e5e9f2;
@@ -279,7 +279,7 @@ img{max-width:100%;display:block}
 .footer .brand-logo{height:42px;width:auto;filter:none;margin-bottom:18px;display:block}
 .brand-text{display:block;color:#fff;font-size:1rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-top:4px}
 /* dashboard side-brand text matching nav color */
-/* .side-brand .brand-text removed — dashboard uses logo only */
+/* .side-brand .brand-text removed â€” dashboard uses logo only */
 .footer .socials{display:flex;gap:12px;margin-top:20px}
 .footer .socials a{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.06);display:grid;place-items:center;padding:0}
 .footer .socials a:hover{background:var(--gold);color:var(--primary);padding:0}
@@ -427,6 +427,18 @@ img{max-width:100%;display:block}
 }
 @media (max-width:600px){
   .svc-grid,.team-grid,.proc-grid,.test-grid,.blog-grid,.price-grid,.stats-grid,.k-grid,.footer-grid{grid-template-columns:1fr}
-  .section{padding:70px 0}
+  .section{padding:60px 0}
   .price.pop{transform:none}
+  .container{padding:0 16px}
+  .nav-inner{gap:12px;padding:0 12px}
+  .nav-logo{padding:6px 10px}
+  .nav-logo-img{height:32px}
+  .nav-cta{gap:8px}
+  .footer{padding:50px 0 20px}
+  .footer-grid{gap:28px;margin-bottom:28px}
+  .footer-grid > div{text-align:center}
+  .footer a{display:inline-block;padding:4px 0}
+  .footer h4{margin-bottom:14px}
+  .socials{justify-content:center}
+  .hero-grid{gap:30px;padding:100px 0 40px}
 }
