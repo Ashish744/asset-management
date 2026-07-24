@@ -11,6 +11,7 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--text);background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body.no-scroll,html.no-scroll{overflow:hidden;height:100%}
 h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;color:var(--primary);line-height:1.15;font-weight:700;letter-spacing:-.01em}
 h1{font-size:clamp(2.4rem,5vw,4.4rem)}
 h2{font-size:clamp(1.9rem,3.4vw,2.9rem)}

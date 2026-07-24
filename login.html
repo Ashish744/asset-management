@@ -26,7 +26,7 @@
     </div>
     <h2 class="form-title">Sign In</h2>
     <p class="form-sub">Choose your role, then sign in below.</p>
-    <form id="loginForm">
+    <form id="loginForm" novalidate>
       <div class="field">
         <label for="roleButtons">Role</label>
         <div id="roleButtons" class="role-buttons" role="group" aria-label="Select role">
@@ -38,11 +38,12 @@
       <div class="field"><label for="email">Email</label><input id="email" type="email" required placeholder="you@example.com"/></div>
       <div class="field password-field"><label for="password">Password</label>
         <div class="pw-row">
-          <input id="password" type="password" required placeholder="••••••••"/>
+          <input id="password" type="password" required minlength="8" placeholder="••••••••"/>
           <button type="button" class="pw-toggle" data-target="password" aria-label="Show password">Show</button>
         </div>
       </div>
-      <div class="form-row"><label><input type="checkbox"/> Remember me</label><a href="404error.html" onclick="event.preventDefault();alert('Reset link sent (demo)')">Forgot password?</a></div>
+      <div class="form-row"><label><input type="checkbox"/> Remember me</label><a href="404error.html">Forgot password?</a></div>
+      <div class="form-error" aria-live="polite"></div>
       <div class="form-actions">
         <button class="btn btn-primary" style="flex:1;justify-content:center" type="submit">Sign In <i class="fa-solid "></i></button>
         <a href="./register.html" class="btn btn-gold" style="flex:1;justify-content:center">Register</a>

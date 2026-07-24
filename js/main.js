@@ -180,7 +180,25 @@
   // Mobile toggle
   const toggle = document.querySelector('.nav-toggle');
   const links = document.querySelector('.nav-links');
-  if(toggle && links) toggle.addEventListener('click', () => links.classList.toggle('open'));
+  const lockScroll = (shouldLock) => {
+    document.body.classList.toggle('no-scroll', shouldLock);
+    document.documentElement.classList.toggle('no-scroll', shouldLock);
+  };
+  if(toggle && links) {
+    toggle.addEventListener('click', () => {
+      const isOpen = links.classList.toggle('open');
+      lockScroll(isOpen);
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    window.addEventListener('resize', () => {
+      if(window.innerWidth > 960 && links.classList.contains('open')) {
+        links.classList.remove('open');
+        lockScroll(false);
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
 
   // Reveal on scroll
   const io = new IntersectionObserver((entries) => {
@@ -283,13 +301,39 @@
     });
   }
   const loginForm = document.getElementById('loginForm');
-  if(loginForm){
+  const loginEmail = document.getElementById('email');
+  const loginPassword = document.getElementById('password');
+  if(loginForm && loginEmail && loginPassword){
+    const loginError = loginForm.querySelector('.form-error');
     loginForm.addEventListener('submit', (e) => {
       e.preventDefault();
+      const emailValue = loginEmail.value.trim();
+      const passwordValue = loginPassword.value;
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      loginError.textContent = '';
+
+      if(!emailPattern.test(emailValue)){
+        loginError.textContent = 'Please enter a valid email like jane@example.com.';
+        loginEmail.focus();
+        return;
+      }
+      if(passwordValue.length < 8){
+        loginError.textContent = 'Password must be at least 8 characters.';
+        loginPassword.focus();
+        return;
+      }
+
       const role = roleSel ? roleSel.value : 'user';
       localStorage.setItem('stackly_role', role);
-      localStorage.setItem('stackly_email', document.getElementById('email')?.value || '');
-      location.href = role === 'admin' ? '/admin-dashboard.html' : '/user-dashboard.html';
+      localStorage.setItem('stackly_email', emailValue);
+      location.href = role === 'admin' ? './admin-dashboard.html' : './user-dashboard.html';
+    });
+
+    [loginEmail, loginPassword].forEach(field => {
+      field.addEventListener('input', () => {
+        if(loginError.textContent) loginError.textContent = '';
+      });
     });
   }
 
@@ -313,13 +357,14 @@
     // password toggles handled globally below
     const regError = registerForm.querySelector('.form-error');
     const namePattern = /^[A-Za-zÀ-ÖØ-öø-ÿ '\-]+$/;
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     registerForm.addEventListener('submit', (e) => {
       e.preventDefault();
       if(!regName.value.trim() || !namePattern.test(regName.value.trim())){
         regError.textContent = 'Please enter a valid full name.'; regName.focus(); return;
       }
-      if(!regEmail.checkValidity()){
-        regError.textContent = 'Please enter a valid email.'; regEmail.focus(); return;
+      if(!emailPattern.test(regEmail.value.trim())){
+        regError.textContent = 'Please enter a valid email like jane@example.com.'; regEmail.focus(); return;
       }
       if(!regPassword.value || regPassword.value.length < 8){
         regError.textContent = 'Password must be at least 8 characters.'; regPassword.focus(); return;
@@ -329,10 +374,10 @@
       }
       // Simulate account creation (demo)
       localStorage.setItem('stackly_role', regRoleInput?.value || 'user');
-      localStorage.setItem('stackly_email', regEmail.value || '');
+      localStorage.setItem('stackly_email', regEmail.value.trim());
       registerForm.reset();
       registerForm.querySelector('button').textContent = 'Created ✓';
-      setTimeout(() => location.href = '/user-dashboard.html', 800);
+      setTimeout(() => location.href = './login.html', 800);
     });
   }
   

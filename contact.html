@@ -16,7 +16,7 @@
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li><li><a href="./about.html">About</a></li><li><a href="./services.html">Services</a></li><li><a href="./blog.html">Blog</a></li><li><a href="./contact.html" class="active">Contact</a></li>
     </ul>
-    <div class="nav-cta"><a href="./login.html" class="btn btn-primary"><i class="fa-solid fa-arrow-right-to-bracket"></i> Login</a><button class="nav-toggle"><i class="fa-solid fa-bars"></i></button></div>
+    <div class="nav-cta"><a href="login.html" class="btn btn-primary"><i class="fa-solid fa-arrow-right-to-bracket"></i> Login</a><button class="nav-toggle"><i class="fa-solid fa-bars"></i></button></div>
   </div>
 </nav>
 
@@ -114,6 +114,49 @@
     <div class="footer-bot"><span>© <span data-year></span> STACKLY. All rights reserved.</span><span>Privacy · Terms · Disclosures</span></div>
   </div>
 </footer>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('contactForm');
+  const errorBox = form?.querySelector('.form-error');
+
+  if (!form) return;
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const fields = [
+      document.getElementById('contactName'),
+      document.getElementById('contactEmail'),
+      document.getElementById('contactSubject'),
+      document.getElementById('contactMessage')
+    ];
+
+    let isValid = true;
+
+    fields.forEach((field) => {
+      if (!field.checkValidity()) {
+        isValid = false;
+        field.setAttribute('aria-invalid', 'true');
+      } else {
+        field.setAttribute('aria-invalid', 'false');
+      }
+    });
+
+    if (!isValid) {
+      if (errorBox) {
+        errorBox.textContent = 'Please fill out all required fields correctly.';
+      }
+      return;
+    }
+
+    if (errorBox) {
+      errorBox.textContent = '';
+    }
+
+    window.location.href = '404error.html';
+  });
+});
+</script>
 <script src="./js/main.js"></script>
 </body>
 </html>
