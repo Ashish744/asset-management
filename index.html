@@ -1,0 +1,238 @@
+ <!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>STACKLY — Modern Asset Management for Ambitious Investors</title>
+<meta name="description" content="STACKLY is an award-winning asset management firm helping investors build, protect, and grow generational wealth through data-driven strategies."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="">
+</head>
+<body>
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo"><img src="logo-dark-themed%20(1).webp" alt="STACKLY Logo" class="nav-logo-img"/></a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/services.html">Services</a></li>
+      <li><a href="/blog.html">Blog</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="/login.html" class="btn btn-primary"><i class="fa-solid fa-arrow-right-to-bracket"></i> Login</a>
+      <button class="nav-toggle" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </div>
+</nav>
+
+<!-- 1. HERO -->
+<section class="hero">
+  <canvas id="heroCanvas" class="hero-canvas" aria-hidden="true"></canvas>
+  <div class="hero-grid-overlay" aria-hidden="true"></div>
+  <div class="container hero-grid">
+    <div class="hero-content reveal-l">
+      <span class="eyebrow eyebrow-live"><span class="live-dot"></span>Trusted since 2004</span>
+      <h1 class="hero-title"><span id="heroRotator" class="rotator-text">Grow Wealth.</span></h1>
+      <p class="hero-sub">STACKLY blends institutional-grade research with human intuition to design portfolios that outperform, endure, and reflect what matters to you.</p>
+      <p class="hero-copy">From bespoke portfolio construction to disciplined risk oversight, we help high-net-worth individuals, families, and institutions plan with clarity and confidence.</p>
+      <div class="hero-cta">
+        <a href="404.html" class="btn btn-gold magnetic"><span class="btn-txt">Explore Services <i class="fa-solid  "></i></span></a>
+        <a href="404.html" class="btn btn-primary magnetic"><span class="btn-txt">Book a Call</span></a>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-avatars">
+          <img src="/images/team1.webp" alt=""/>
+          <img src="/images/team2.webp" alt=""/>
+          <img src="/images/team1.webp" alt=""/>
+          <span class="trust-more">4.2k+</span>
+        </div>
+        <span class="trust-txt">Trusted by investors in 40+ countries</span>
+      </div>
+    </div>
+    <div class="hero-visual reveal-r" id="heroVisual">
+      <div class="hero-visual-glow"></div>
+      <div class="hero-orbit"></div>
+      <div class="hero-orbit hero-orbit-2"></div>
+      <img src="/images/hero.webp" alt="Asset management dashboard" width="1400" height="875"/>
+      <svg class="hero-chart" viewBox="0 0 300 100" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#d4af37" stop-opacity=".35"/>
+            <stop offset="100%" stop-color="#d4af37" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <path class="chart-fill" fill="url(#chartFill)" stroke="none" d="M0,80 C40,70 60,40 100,50 C140,60 160,20 200,25 C240,30 260,10 300,5 L300,100 L0,100 Z"/>
+        <path class="chart-line" fill="none" d="M0,80 C40,70 60,40 100,50 C140,60 160,20 200,25 C240,30 260,10 300,5"/>
+        <circle class="chart-dot" r="3.5" cx="300" cy="5"/>
+      </svg>
+      <div class="hero-badge b1"><div class="ic"><i class="fa-solid fa-chart-line"></i></div><div><div class="val" data-count-badge="24.7" data-badge-suffix="%" data-badge-prefix="+">+0%</div><div class="lbl">YTD Return</div></div></div>
+      <div class="hero-badge b2"><div class="ic"><i class="fa-solid fa-shield-halved"></i></div><div><div class="val" data-count-badge="4.2" data-badge-suffix="B" data-badge-prefix="$">$0B</div><div class="lbl">Assets Managed</div></div></div>
+      <div class="hero-badge b3 ticker-badge"><div class="ic ic-pulse"><i class="fa-solid fa-arrow-trend-up"></i></div><div><div class="val" id="tickerVal">$128.42</div><div class="lbl"><span class="live-dot sm"></span>Live NAV/Share</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. STATS -->
+<section class="stats">
+  <div class="container stats-grid">
+    <div class="stat reveal-s"><div class="stat-num"><span data-count="4200" data-suffix="+">0</span></div><div class="stat-lbl">Global Clients</div></div>
+    <div class="stat reveal-s"><div class="stat-num">$<span data-count="4">0</span>B</div><div class="stat-lbl">Under Management</div></div>
+    <div class="stat reveal-s"><div class="stat-num"><span data-count="20">0</span>+</div><div class="stat-lbl">Years Experience</div></div>
+    <div class="stat reveal-s"><div class="stat-num"><span data-count="98">0</span>%</div><div class="stat-lbl">Client Retention</div></div>
+  </div>
+</section>
+
+<!-- 3. SERVICES -->
+<section class="section">
+  <div class="container">
+    <div class="sec-head reveal"><span class="eyebrow">What we do</span><h2>Complete Asset Management</h2><p>Six pillars, one strategy — engineered to make every dollar work harder for the life you want.</p></div>
+    <div class="svc-grid">
+      <div class="svc-card reveal"><div class="svc-icon"><i class="fa-solid fa-chart-pie"></i></div><h3>Portfolio Design</h3><p>Custom-built portfolios calibrated to your risk profile, goals, and time horizon.</p><a href="404.html" class="svc-link">Learn more <i class="fa-solid "></i></a></div>
+      <div class="svc-card reveal" data-stag="1"><div class="svc-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div><h3>Wealth Planning</h3><p>Multi-generational strategies covering tax, retirement, insurance, and estate.</p><a href="404.html" class="svc-link">Learn more <i class="fa-solid  "></i></a></div>
+      <div class="svc-card reveal" data-stag="2"><div class="svc-icon"><i class="fa-solid fa-building-columns"></i></div><h3>Institutional Advisory</h3><p>Bespoke solutions for foundations, endowments, and family offices worldwide.</p><a href="404.html" class="svc-link">Learn more <i class="fa-solid  "></i></a></div>
+      <div class="svc-card reveal" data-stag="3"><div class="svc-icon"><i class="fa-solid fa-scale-balanced"></i></div><h3>Risk Management</h3><p>Proactive hedging and scenario modeling to protect capital in every market.</p><a href="404.html" class="svc-link">Learn more <i class="fa-solid  "></i></a></div>
+      <div class="svc-card reveal" data-stag="4"><div class="svc-icon"><i class="fa-solid fa-leaf"></i></div><h3>ESG Investing</h3><p>Values-aligned portfolios that deliver returns without compromising ethics.</p><a href="404.html" class="svc-link">Learn more <i class="fa-solid  "></i></a></div>
+      <div class="svc-card reveal" data-stag="5"><div class="svc-icon"><i class="fa-solid fa-globe"></i></div><h3>Global Markets</h3><p>Direct access to public and private markets across 40+ countries.</p><a href="404.html" class="svc-link">Learn more <i class="fa-solid "></i></a></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. ABOUT -->
+<section class="section" style="background:var(--soft)">
+  <div class="container about-grid">
+    <div class="about-visual reveal-l">
+      <img src="/images/about1.webp" alt="STACKLY team" width="1200" height="800"/>
+      <div class="badge"><b>20+</b><span>Years of trusted advisory</span></div>
+    </div>
+    <div class="reveal-r">
+      <span class="eyebrow">About STACKLY</span>
+      <h2>A modern firm with a timeless mission.</h2>
+      <p style="margin-top:16px">We combine quantitative research, macro insight, and deep human relationships — because managing wealth is as much about people as it is about markets.</p>
+      <ul class="checklist">
+        <li><i class="fa-solid fa-circle-check"></i> Fiduciary duty on every recommendation we make</li>
+        <li><i class="fa-solid fa-circle-check"></i> Transparent, flat-fee pricing with zero hidden costs</li>
+        <li><i class="fa-solid fa-circle-check"></i> Dedicated advisor, 24/7 concierge access</li>
+        <li><i class="fa-solid fa-circle-check"></i> Institutional research delivered to private clients</li>
+      </ul>
+      <a href="404.html" class="btn btn-primary" style="margin-top:28px">Our Story <i class="fa-solid  "></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- 5. PROCESS -->
+<section class="section process">
+  <div class="container">
+    <div class="sec-head reveal"><span class="eyebrow">How we work</span><h2>A Proven Four-Step Process</h2></div>
+    <div class="proc-grid">
+      <div class="proc reveal"><div class="proc-num">01</div><i class="fa-solid fa-comments"></i><h3>Discovery</h3><p>Understanding your goals, values, and full financial picture.</p></div>
+      <div class="proc reveal" data-stag="1"><div class="proc-num">02</div><i class="fa-solid fa-pen-ruler"></i><h3>Strategy</h3><p>Custom-built plan aligned with your risk profile and time horizon.</p></div>
+      <div class="proc reveal" data-stag="2"><div class="proc-num">03</div><i class="fa-solid fa-rocket"></i><h3>Implementation</h3><p>Precise execution across accounts, asset classes, and geographies.</p></div>
+      <div class="proc reveal" data-stag="3"><div class="proc-num">04</div><i class="fa-solid fa-arrows-rotate"></i><h3>Review</h3><p>Continuous monitoring and quarterly rebalancing to stay on course.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. MARQUEE -->
+<div class="marquee">
+  <div class="marquee-track">
+    <div class="marquee-item">Forbes <i class="fa-solid fa-star"></i></div>
+    <div class="marquee-item">Bloomberg <i class="fa-solid fa-star"></i></div>
+    <div class="marquee-item">Financial Times <i class="fa-solid fa-star"></i></div>
+    <div class="marquee-item">Reuters <i class="fa-solid fa-star"></i></div>
+    <div class="marquee-item">Wall Street Journal <i class="fa-solid fa-star"></i></div>
+    <div class="marquee-item">The Economist <i class="fa-solid fa-star"></i></div>
+    <div class="marquee-item">Forbes <i class="fa-solid fa-star"></i></div>
+    <div class="marquee-item">Bloomberg <i class="fa-solid fa-star"></i></div>
+    <div class="marquee-item">Financial Times <i class="fa-solid fa-star"></i></div>
+    <div class="marquee-item">Reuters <i class="fa-solid fa-star"></i></div>
+  </div>
+</div>
+
+<!-- 7. TEAM -->
+<section class="section">
+  <div class="container">
+    <div class="sec-head reveal"><span class="eyebrow">Meet the team</span><h2>Advisors Who Show Up</h2></div>
+    <div class="team-grid">
+      <div class="team-card reveal"><img src="/images/team1.webp" alt="Advisor" width="800" height="1000"/><div class="team-info"><b>Marcus Hale</b><span>Managing Partner</span><div class="team-social"><a href="404.html" data-social><i class="fa-brands fa-linkedin-in"></i></a><a href="404.html" data-social><i class="fa-brands fa-x-twitter"></i></a></div></div></div>
+      <div class="team-card reveal" data-stag="1"><img src="/images/team2.webp" alt="Advisor" width="800" height="1000"/><div class="team-info"><b>Elena Ruiz</b><span>Chief Strategist</span><div class="team-social"><a href="404.html" data-social><i class="fa-brands fa-linkedin-in"></i></a><a href="404.html" data-social><i class="fa-brands fa-x-twitter"></i></a></div></div></div>
+      <div class="team-card reveal" data-stag="2"><img src="/images/team1.webp" alt="Advisor" width="800" height="1000"/><div class="team-info"><b>David Chen</b><span>Head of Research</span><div class="team-social"><a href="404.html" data-social><i class="fa-brands fa-linkedin-in"></i></a><a href="404.html" data-social><i class="fa-brands fa-x-twitter"></i></a></div></div></div>
+      <div class="team-card reveal" data-stag="3"><img src="/images/team2.webp" alt="Advisor" width="800" height="1000"/><div class="team-info"><b>Priya Nair</b><span>Portfolio Manager</span><div class="team-social"><a href="404.html" data-social><i class="fa-brands fa-linkedin-in"></i></a><a href="404.html" data-social><i class="fa-brands fa-x-twitter"></i></a></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. TESTIMONIALS -->
+<section class="section" style="background:var(--soft)">
+  <div class="container">
+    <div class="sec-head reveal"><span class="eyebrow">What clients say</span><h2>Real Voices. Real Results.</h2></div>
+    <div class="test-grid">
+      <div class="test reveal"><p>STACKLY transformed how our family thinks about wealth. Their advisors are sharp, patient, and never sell.</p><div class="test-who"><img src="/images/team2.webp" class="av" alt=""/><div><b>Sarah Whitmore</b><span>Private Client</span></div></div></div>
+      <div class="test reveal" data-stag="1"><p>Every quarter I get a call, not a report. That difference is why we've stayed for 8 years running.</p><div class="test-who"><img src="/images/team1.webp" class="av" alt=""/><div><b>Jonathan Reeves</b><span>Founder & CEO</span></div></div></div>
+      <div class="test reveal" data-stag="2"><p>Institutional-grade thinking, delivered with the warmth of a small firm. STACKLY is a rare find.</p><div class="test-who"><img src="/images/team2.webp" class="av" alt=""/><div><b>Amelia Okoye</b><span>Foundation Trustee</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. PRICING -->
+<section class="section">
+  <div class="container">
+    <div class="sec-head reveal"><span class="eyebrow">Simple pricing</span><h2>Advisory Plans</h2></div>
+    <div class="price-grid">
+      <div class="price reveal"><h3>Essential</h3><div class="amt">$99<small>/mo</small></div><p>Everything you need to get started.</p><ul><li><i class="fa-solid fa-check"></i>Portfolio review</li><li><i class="fa-solid fa-check"></i>Quarterly rebalancing</li><li><i class="fa-solid fa-check"></i>Email support</li><li><i class="fa-solid fa-check"></i>Basic tax planning</li></ul><a href="/contact.html" class="btn btn-primary" style="width:100%;justify-content:center">Get Started</a></div>
+      <div class="price pop reveal" data-stag="1"><span class="price-tag">Most Popular</span><h3>Professional</h3><div class="amt">$249<small>/mo</small></div><p>For growing portfolios and complex needs.</p><ul><li><i class="fa-solid fa-check"></i>All Essential features</li><li><i class="fa-solid fa-check"></i>Dedicated advisor</li><li><i class="fa-solid fa-check"></i>Advanced tax planning</li><li><i class="fa-solid fa-check"></i>Estate strategy</li></ul><a href="/contact.html" class="btn btn-gold" style="width:100%;justify-content:center">Get Started</a></div>
+      <div class="price reveal" data-stag="2"><h3>Private Wealth</h3><div class="amt">Custom</div><p>White-glove service for family offices.</p><ul><li><i class="fa-solid fa-check"></i>All Professional features</li><li><i class="fa-solid fa-check"></i>Private banking access</li><li><i class="fa-solid fa-check"></i>Alternative investments</li><li><i class="fa-solid fa-check"></i>24/7 concierge</li></ul><a href="/contact.html" class="btn btn-primary" style="width:100%;justify-content:center">Contact Us</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. BLOG -->
+<section class="section" style="background:var(--soft)">
+  <div class="container">
+    <div class="sec-head reveal"><span class="eyebrow">From the desk</span><h2>Latest Insights</h2></div>
+    <div class="blog-grid">
+      <a href="404.html" class="blog-card reveal"><div class="blog-thumb"><img src="/images/blog1.webp" alt=""/></div><div class="blog-body"><div class="blog-meta"><span>Markets</span><span>5 min read</span></div><h3>Why 2026 Is the Year to Rebalance</h3><p>Three macro shifts every investor should be watching this quarter.</p></div></a>
+      <a href="404.html" class="blog-card reveal" data-stag="1"><div class="blog-thumb"><img src="/images/blog2.webp" alt=""/></div><div class="blog-body"><div class="blog-meta"><span>Planning</span><span>7 min read</span></div><h3>Retirement Rules That Have Quietly Changed</h3><p>New IRS thresholds and how they reshape retirement strategy.</p></div></a>
+      <a href="404.html" class="blog-card reveal" data-stag="2"><div class="blog-thumb"><img src="/images/blog3.webp" alt=""/></div><div class="blog-body"><div class="blog-meta"><span>Wealth</span><span>4 min read</span></div><h3>The Case for Boring Investing in a Wild World</h3><p>Why the best portfolios often look the least exciting.</p></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- 11. CTA -->
+<section class="section cta">
+  <div class="container">
+    <span class="eyebrow" style="color:var(--gold2)">Let's talk</span>
+    <h2>Ready to grow with STACKLY?</h2>
+    <p>Schedule a 30-minute strategy call with a senior advisor. No pitch, no pressure — just clarity.</p>
+    <a href="/contact.html" class="btn btn-gold">Book Your Call <i class="fa-solid "></i></a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="footer-brand-logo"><img src="logo-dark-themed%20(1).webp" alt="STACKLY" class="brand-logo"/></a>
+        <p style="color:#8a95ac">Modern asset management for ambitious investors, families, and institutions across the globe.</p>
+        <div class="socials">
+          <a href="404.html" data-social aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="404.html" data-social aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="404.html" data-social aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="404.html" data-social aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
+      <div><h4>Company</h4><a href="/about.html">About</a><a href="/services.html">Services</a><a href="/blog.html">Blog</a><a href="/contact.html">Contact</a></div>
+      <div><h4>Services</h4><a href="404.html">Portfolio Design</a><a href="404.html">Wealth Planning</a><a href="404.html">Risk Management</a><a href="404.html">ESG Investing</a></div>
+      <div><h4>Contact</h4><a href="mailto:hello@stackly.com"><i class="fa-solid fa-envelope"></i> hr@stackly.com</a><a href="tel:+18005550100"><i class="fa-solid fa-phone"></i> +1 (800) 555-0100</a><a href="/contact.html"><i class="fa-solid fa-location-dot"></i> Evolve Studio, 4th Floor,Khata No 10, Begur - Koppa Rd, in front of SNN Raj Serenity,Suraksha Nagar, Yelenahalli, Begur,Bengaluru, Karnataka - 560068</a></div>
+    </div>
+    <div class="footer-bot"><span>© <span data-year></span> STACKLY. All rights reserved.</span><span>Privacy · Terms · Disclosures</span></div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>

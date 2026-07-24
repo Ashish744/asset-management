@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Login — STACKLY Client Portal</title>
+<meta name="description" content="Access your STACKLY account. Secure client portal for users and administrators."/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="login-wrap">
+  <aside class="login-side">
+    <a href="index.html" class="brand-link"><img src="logo-dark-themed%20(1).webp" alt="STACKLY" class="brand"/></a>
+    <div>
+      <h2>Welcome back to STACKLY.</h2>
+      <p>Sign in to review your portfolio, message your advisor, and access private research.</p>
+    </div>
+    <div style="opacity:.7;font-size:.85rem;position:relative;z-index:2">© <span data-year></span> STACKLY. Secure client access.</div>
+  </aside>
+  <main class="login-form">
+    <div class="login-top">
+      <a href="index.html" class="back-home"><i class="fa-solid fa-arrow-left"></i> Back to home</a>
+      <!-- <a href="/home.html"><img src="logo-dark-themed%20(1).webp" alt="STACKLY" style="height:44px"/></a> -->
+    </div>
+    <h2 class="form-title">Sign In</h2>
+    <p class="form-sub">Choose your role, then sign in below.</p>
+    <form id="loginForm">
+      <div class="field">
+        <label for="roleButtons">Role</label>
+        <div id="roleButtons" class="role-buttons" role="group" aria-label="Select role">
+          <button type="button" class="btn role-btn active" data-role="user">User</button>
+          <button type="button" class="btn role-btn" data-role="admin">Admin</button>
+        </div>
+        <input type="hidden" id="role" name="role" value="user" required>
+      </div>
+      <div class="field"><label for="email">Email</label><input id="email" type="email" required placeholder="you@example.com"/></div>
+      <div class="field password-field"><label for="password">Password</label>
+        <div class="pw-row">
+          <input id="password" type="password" required placeholder="••••••••"/>
+          <button type="button" class="pw-toggle" data-target="password" aria-label="Show password">Show</button>
+        </div>
+      </div>
+      <div class="form-row"><label><input type="checkbox"/> Remember me</label><a href="404.html" onclick="event.preventDefault();alert('Reset link sent (demo)')">Forgot password?</a></div>
+      <div class="form-actions">
+        <button class="btn btn-primary" style="flex:1;justify-content:center" type="submit">Sign In <i class="fa-solid "></i></button>
+        <a href="/register.html" class="btn btn-gold" style="flex:1;justify-content:center">Register</a>
+      </div>
+      <p class="form-alt">Don't have an account? <a href="/register.html">Create one</a></p>
+    </form>
+  </main>
+</div>
+<script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Admin Dashboard — STACKLY</title>
+<meta name="description" content="STACKLY administrator control panel."/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="dash-wrap">
+  <aside class="side">
+    <div class="side-brand"><a href="index.html" class="nav-logo"><img src="logo-dark-themed%20(1).webp" alt="STACKLY" class="nav-logo-img"/></a></div>
+    <div class="side-sec">Manage</div>
+    <ul class="side-nav">
+      <li><a href="#" data-sec="overview" class="active"><i class="fa-solid fa-gauge-high"></i> Overview</a></li>
+      <li><a href="#" data-sec="clients"><i class="fa-solid fa-users"></i> Clients</a></li>
+      <li><a href="#" data-sec="advisors"><i class="fa-solid fa-user-tie"></i> Advisors</a></li>
+      <li><a href="#" data-sec="portfolios"><i class="fa-solid fa-briefcase"></i> Portfolios</a></li>
+      <li><a href="#" data-sec="tickets"><i class="fa-solid fa-headset"></i> Support Tickets</a></li>
+      <li><a href="#" data-sec="analytics"><i class="fa-solid fa-chart-bar"></i> Analytics</a></li>
+    </ul>
+    <div class="side-sec">System</div>
+    <ul class="side-nav">
+      <li><a href="#" data-sec="settings"><i class="fa-solid fa-gear"></i> Settings</a></li>
+      <li><a href="#" id="logoutBtn"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+    </ul>
+  </aside>
+  <main class="dash-main">
+    <div class="dash-top">
+      <div style="display:flex;align-items:center;gap:12px"><button class="mob-toggle"><i class="fa-solid fa-bars"></i></button><h1>Admin Overview</h1></div>
+      <div class="dash-user"><img src="/images/team2.webp" alt=""/><span id="userEmail">admin@stackly.com</span></div>
+    </div>
+
+    <div data-panel="overview">
+      <div class="k-grid">
+        <div class="k-card reveal"><div class="ic"><i class="fa-solid fa-users"></i></div><div class="k-num">4,218</div><div class="k-lbl">Active Clients</div><div class="k-up">+124 this month</div></div>
+        <div class="k-card reveal" data-stag="1"><div class="ic"><i class="fa-solid fa-sack-dollar"></i></div><div class="k-num">$4.24B</div><div class="k-lbl">AUM</div><div class="k-up">+2.8%</div></div>
+        <div class="k-card reveal" data-stag="2"><div class="ic"><i class="fa-solid fa-user-tie"></i></div><div class="k-num">42</div><div class="k-lbl">Advisors</div><div class="k-up">3 hiring</div></div>
+        <div class="k-card reveal" data-stag="3"><div class="ic"><i class="fa-solid fa-headset"></i></div><div class="k-num">18</div><div class="k-lbl">Open Tickets</div><div class="k-dn">4 urgent</div></div>
+      </div>
+      <div class="dash-grid">
+        <div class="panel reveal"><h3>Recent Client Activity</h3><table class="table"><tr><th>Client</th><th>Action</th><th>Value</th><th>Status</th></tr><tr><td>Sarah Whitmore</td><td>Deposit</td><td>$250,000</td><td><span class="pill ok">Cleared</span></td></tr><tr><td>Jonathan Reeves</td><td>Rebalance</td><td>—</td><td><span class="pill ok">Done</span></td></tr><tr><td>Amelia Okoye</td><td>New Account</td><td>$1.2M</td><td><span class="pill warn">Onboarding</span></td></tr><tr><td>David Park</td><td>Withdrawal</td><td>$40,000</td><td><span class="pill bad">Flagged</span></td></tr></table></div>
+        <div class="panel reveal" data-stag="1"><h3>Alerts</h3><ul style="list-style:none"><li style="padding:12px 0;border-bottom:1px solid var(--line);display:flex;gap:10px"><i class="fa-solid fa-triangle-exclamation" style="color:#ef4444"></i><div><b style="color:var(--primary)">4 unusual trades</b><div style="font-size:.85rem;color:var(--muted)">Review compliance queue</div></div></li><li style="padding:12px 0;border-bottom:1px solid var(--line);display:flex;gap:10px"><i class="fa-solid fa-circle-info" style="color:var(--accent)"></i><div><b style="color:var(--primary)">Quarter close in 12 days</b></div></li><li style="padding:12px 0;display:flex;gap:10px"><i class="fa-solid fa-check-circle" style="color:#10b981"></i><div><b style="color:var(--primary)">Audit report ready</b></div></li></ul></div>
+      </div>
+    </div>
+
+    <div data-panel="clients" style="display:none">
+      <div class="panel"><h3>All Clients</h3><table class="table"><tr><th>Name</th><th>Advisor</th><th>AUM</th><th>Since</th><th>Status</th></tr><tr><td>Sarah Whitmore</td><td>Elena Ruiz</td><td>$2.4M</td><td>2018</td><td><span class="pill ok">Active</span></td></tr><tr><td>Jonathan Reeves</td><td>Marcus Hale</td><td>$8.1M</td><td>2015</td><td><span class="pill ok">Active</span></td></tr><tr><td>Amelia Okoye</td><td>Priya Nair</td><td>$1.2M</td><td>2026</td><td><span class="pill warn">Onboarding</span></td></tr><tr><td>David Park</td><td>David Chen</td><td>$540K</td><td>2022</td><td><span class="pill ok">Active</span></td></tr><tr><td>Nina Ford</td><td>Elena Ruiz</td><td>$3.9M</td><td>2019</td><td><span class="pill ok">Active</span></td></tr></table></div>
+    </div>
+
+    <div data-panel="advisors" style="display:none">
+      <div class="k-grid"><div class="k-card"><img src="/images/team1.webp" style="width:60px;height:60px;border-radius:50%;object-fit:cover;margin-bottom:10px"/><div class="k-num" style="font-size:1.2rem">Marcus Hale</div><div class="k-lbl">Managing Partner · 340 clients</div></div><div class="k-card"><img src="/images/team2.webp" style="width:60px;height:60px;border-radius:50%;object-fit:cover;margin-bottom:10px"/><div class="k-num" style="font-size:1.2rem">Elena Ruiz</div><div class="k-lbl">Chief Strategist · 280 clients</div></div><div class="k-card"><img src="/images/team1.webp" style="width:60px;height:60px;border-radius:50%;object-fit:cover;margin-bottom:10px"/><div class="k-num" style="font-size:1.2rem">David Chen</div><div class="k-lbl">Head of Research · 190 clients</div></div><div class="k-card"><img src="/images/team2.webp" style="width:60px;height:60px;border-radius:50%;object-fit:cover;margin-bottom:10px"/><div class="k-num" style="font-size:1.2rem">Priya Nair</div><div class="k-lbl">Portfolio Manager · 210 clients</div></div></div>
+    </div>
+
+    <div data-panel="portfolios" style="display:none">
+      <div class="panel"><h3>Firm-Wide Allocation</h3><table class="table"><tr><th>Asset Class</th><th>Allocation</th><th>Value</th><th>YTD</th></tr><tr><td>US Equities</td><td>48%</td><td>$2.03B</td><td class="k-up">+11.2%</td></tr><tr><td>International Equities</td><td>22%</td><td>$933M</td><td class="k-up">+7.8%</td></tr><tr><td>Fixed Income</td><td>18%</td><td>$763M</td><td class="k-dn">-0.4%</td></tr><tr><td>Alternatives</td><td>8%</td><td>$339M</td><td class="k-up">+5.1%</td></tr><tr><td>Cash</td><td>4%</td><td>$170M</td><td class="k-up">+4.9%</td></tr></table></div>
+    </div>
+
+    <div data-panel="tickets" style="display:none">
+      <div class="panel"><h3>Support Tickets</h3><table class="table"><tr><th>ID</th><th>Client</th><th>Subject</th><th>Priority</th><th>Status</th></tr><tr><td>#4218</td><td>David Park</td><td>Wire transfer question</td><td><span class="pill bad">High</span></td><td><span class="pill warn">Open</span></td></tr><tr><td>#4217</td><td>Sarah Whitmore</td><td>Q2 statement missing</td><td><span class="pill warn">Med</span></td><td><span class="pill warn">Open</span></td></tr><tr><td>#4216</td><td>Nina Ford</td><td>2FA reset</td><td><span class="pill ok">Low</span></td><td><span class="pill ok">Resolved</span></td></tr></table></div>
+    </div>
+
+    <div data-panel="analytics" style="display:none">
+      <div class="k-grid"><div class="k-card"><div class="ic"><i class="fa-solid fa-chart-line"></i></div><div class="k-num">+12.4%</div><div class="k-lbl">Firm YTD Return</div></div><div class="k-card"><div class="ic"><i class="fa-solid fa-user-plus"></i></div><div class="k-num">124</div><div class="k-lbl">New Clients (30d)</div></div><div class="k-card"><div class="ic"><i class="fa-solid fa-percent"></i></div><div class="k-num">98%</div><div class="k-lbl">Retention</div></div><div class="k-card"><div class="ic"><i class="fa-solid fa-clock"></i></div><div class="k-num">4.2 hrs</div><div class="k-lbl">Avg Response Time</div></div></div>
+    </div>
+
+    <div data-panel="settings" style="display:none">
+      <div class="panel" style="max-width:640px">
+        <h3>Admin Settings</h3>
+        <div class="field"><label>Firm Name</label><input value="STACKLY Asset Management"/></div>
+        <div class="field"><label>Support Email</label><input type="email" value="admin@stackly.com"/></div>
+        <!-- <div class="field"><label>Default Advisory Tier</label><select><option>Essential</option><option>Professional</option><option>Private Wealth</option></select></div> -->
+        <!-- <div class="field"><label>Compliance Alerts</label><select><option>Real-time</option><option>Daily digest</option></select></div> -->
+        <button class="btn btn-primary">Save Changes</button>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="/js/main.js"></script>
+</body>
+</html>
