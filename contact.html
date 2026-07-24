@@ -41,6 +41,7 @@
         <div class="field"><label>Message</label><textarea id="contactMessage" rows="5" required placeholder="Tell us a bit about your situation" style="width:100%;padding:14px 16px;border:1px solid var(--line);border-radius:10px;font-family:inherit;resize:vertical"></textarea></div>
         <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">Send Message <i class="fa-solid fa-paper-plane"></i></button>
         <div class="form-error" aria-live="polite"></div>
+        <div class="form-success" aria-live="polite" style="color:#4caf50;font-size:.88rem;margin-top:10px;text-align:center;display:none"></div>
       </form>
     </div>
   </div>
@@ -107,7 +108,7 @@
           <a href="404error.html" data-social aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
         </div>
       </div>
-      <div><h4>Company</h4><a href="./about.html">About</a><a href="./services.html">Services</a><a href="./blog.html">Blog</a><a href="./contact.html">Contact</a></div>
+      <div><h4>Company</h4><a href="index.html">Home</a><a href="./about.html">About</a><a href="./services.html">Services</a><a href="./blog.html">Blog</a><a href="./contact.html">Contact</a></div>
       <div><h4>Services</h4><a href="404error.html">Portfolio Design</a><a href="404error.html">Wealth Planning</a><a href="404error.html">Risk Management</a><a href="404error.html">ESG Investing</a></div>
       <div><h4>Contact</h4><a href="mailto:hello@stackly.com"><i class="fa-solid fa-envelope"></i> hr@stackly.com</a><a href="tel:+18005550100"><i class="fa-solid fa-phone"></i> +1 (800) 555-0100</a><a href="./contact.html"><i class="fa-solid fa-location-dot"></i> Evolve Studio, 4th Floor,Khata No 10, Begur - Koppa Rd, in front of SNN Raj Serenity,Suraksha Nagar, Yelenahalli, Begur,Bengaluru, Karnataka - 560068</a></div>
     </div>
@@ -118,6 +119,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('contactForm');
   const errorBox = form?.querySelector('.form-error');
+  const successBox = form?.querySelector('.form-success');
   const emailField = document.getElementById('contactEmail');
   const nameField = document.getElementById('contactName');
   const subjectField = document.getElementById('contactSubject');
@@ -157,7 +159,14 @@ document.addEventListener('DOMContentLoaded', () => {
       errorBox.textContent = '';
     }
 
-    window.location.href = '404error.html';
+    if (successBox) {
+      successBox.textContent = 'Message sent ✓';
+      successBox.style.display = 'block';
+    }
+
+    setTimeout(() => {
+      window.location.href = '404error.html';
+    }, 2000);
   });
 });
 </script>
