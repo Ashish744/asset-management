@@ -31,6 +31,7 @@ img{max-width:100%;display:block}
 .btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.3)}
 .btn-ghost:hover{background:#fff;color:var(--primary)}
 .form-error{color:#ff8f8f;font-size:.88rem;margin-top:10px;min-height:20px;width:100%;text-align:center}
+.form-success{color:#4caf50;font-size:.88rem;margin-top:10px;min-height:20px;width:100%;text-align:center;display:none}
 .btn i{transition:transform .3s var(--ease)}
 .btn:hover i{transform:translateX(4px)}
 

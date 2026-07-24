@@ -266,38 +266,96 @@
     });
   }
 
-  // Contact form validation
+  // ---- Contact form validation (single source of truth — do not duplicate this in contact.html) ----
   const contactForm = document.getElementById('contactForm');
-  const contactName = document.getElementById('contactName');
-  const contactEmail = document.getElementById('contactEmail');
-  const contactSubject = document.getElementById('contactSubject');
-  if(contactForm && contactName && contactEmail && contactSubject){
+  if(contactForm){
+    const contactName = document.getElementById('contactName');
+    const contactEmail = document.getElementById('contactEmail');
+    const contactSubject = document.getElementById('contactSubject');
+    const contactMessage = document.getElementById('contactMessage');
     const contactError = contactForm.querySelector('.form-error');
-    const namePattern = /^[A-Za-zÀ-ÖØ-öø-ÿ '\-]+$/;
+    const contactSuccess = contactForm.querySelector('.form-success');
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+    const btnLabel = submitButton ? submitButton.querySelector('.btn-label') : null;
+    const btnIcon = submitButton ? submitButton.querySelector('i') : null;
+
+    // Letters (incl. accents), spaces, hyphens, apostrophes only — no digits/symbols.
+    const namePattern = /^[A-Za-zÀ-ÖØ-öø-ÿ'\-]+(?:\s[A-Za-zÀ-ÖØ-öø-ÿ'\-]+)*$/;
+    // Practical local@domain.tld email validation.
+    const emailPattern = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/;
+
+    let resetTimer = null;
+
+    const showError = (field, message) => {
+      if(contactError) contactError.textContent = message;
+      if(field){ field.setAttribute('aria-invalid', 'true'); field.focus(); }
+    };
+
+    const clearErrors = () => {
+      if(contactError) contactError.textContent = '';
+      [contactName, contactEmail, contactSubject, contactMessage].forEach(f => {
+        if(f) f.setAttribute('aria-invalid', 'false');
+      });
+    };
+
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      if(!contactName.value.trim() || !namePattern.test(contactName.value.trim())){
-        contactError.textContent = 'Please enter a valid full name using letters only.';
-        contactName.focus();
+      clearErrors();
+
+      const nameValue = contactName ? contactName.value.trim() : '';
+      const emailValue = contactEmail ? contactEmail.value.trim() : '';
+      const subjectValue = contactSubject ? contactSubject.value.trim() : '';
+      const messageValue = contactMessage ? contactMessage.value.trim() : '';
+
+      if(!nameValue || !namePattern.test(nameValue)){
+        showError(contactName, 'Full name must contain letters only (no numbers or symbols).');
         return;
       }
-      if(!contactEmail.checkValidity()){
-        contactError.textContent = 'Please enter a valid email like jane@example.com.';
-        contactEmail.focus();
+      if(!emailValue || !emailPattern.test(emailValue)){
+        showError(contactEmail, 'Please enter a valid email address, e.g. jane@example.com.');
         return;
       }
-      if(!contactSubject.value.trim()){
-        contactError.textContent = 'Subject is required.';
-        contactSubject.focus();
+      if(!subjectValue){
+        showError(contactSubject, 'Subject is required.');
         return;
       }
-      contactError.textContent = '';
-      contactForm.reset();
-      contactForm.querySelector('button').textContent = 'Sent ✓';
+      if(!messageValue){
+        showError(contactMessage, 'Message is required.');
+        return;
+      }
+
+      if(contactSuccess){
+        contactSuccess.textContent = 'Message sent ✓';
+        contactSuccess.style.display = 'block';
+      }
+
+      if(submitButton){
+        submitButton.disabled = true;
+        if(btnLabel) btnLabel.textContent = 'Sent';
+        if(btnIcon) btnIcon.className = 'fa-solid fa-check';
+      }
+
+      if(resetTimer) clearTimeout(resetTimer);
+      resetTimer = setTimeout(() => {
+        if(submitButton){
+          submitButton.disabled = false;
+          if(btnLabel) btnLabel.textContent = 'Send Message';
+          if(btnIcon) btnIcon.className = 'fa-solid fa-paper-plane';
+        }
+        if(contactSuccess){
+          contactSuccess.textContent = '';
+          contactSuccess.style.display = 'none';
+        }
+        contactForm.reset();
+        resetTimer = null;
+      }, 2000);
     });
-    [contactName, contactEmail, contactSubject].forEach(field => {
+
+    [contactName, contactEmail, contactSubject, contactMessage].forEach(field => {
+      if(!field) return;
       field.addEventListener('input', () => {
-        if(contactError.textContent) contactError.textContent = '';
+        field.setAttribute('aria-invalid', 'false');
+        if(contactError) contactError.textContent = '';
       });
     });
   }
@@ -394,7 +452,7 @@
       setTimeout(() => location.href = './login.html', 800);
     });
   }
-  
+
   // Global password show/hide toggles (works for login and register)
   document.querySelectorAll('.pw-toggle').forEach(btn => {
     const targetId = btn.dataset.target;
