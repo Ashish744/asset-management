@@ -211,7 +211,7 @@
 
   // Social icons -> 404
   document.querySelectorAll('[data-social]').forEach(el => {
-    el.addEventListener('click', (e) => { e.preventDefault(); location.href = '/404error.html'; });
+    el.addEventListener('click', (e) => { e.preventDefault(); location.href = '404error.html'; });
   });
 
   // Newsletter validation
