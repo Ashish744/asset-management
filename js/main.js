@@ -237,16 +237,30 @@
   const newsletterEmail = document.getElementById('newsletterEmail');
   if(newsletterForm && newsletterEmail){
     const newsletterError = newsletterForm.querySelector('.form-error');
+    const subscribeButton = newsletterForm.querySelector('button');
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
     newsletterForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      if(newsletterEmail.checkValidity()){
-        newsletterError.textContent = '';
-        newsletterForm.querySelector('button').textContent = 'Subscribed ✓';
-      } else {
-        newsletterError.textContent = 'Please enter a valid email like ashu@gmail.com.';
+      const value = newsletterEmail.value.trim();
+
+      if(!emailPattern.test(value)){
+        newsletterError.textContent = 'Please enter a valid email like jane@example.com.';
         newsletterEmail.focus();
+        return;
       }
+
+      newsletterError.textContent = '';
+      subscribeButton.textContent = 'Subscribed ✓';
+      subscribeButton.disabled = true;
+
+      window.setTimeout(() => {
+        subscribeButton.textContent = 'Subscribe';
+        subscribeButton.disabled = false;
+        newsletterForm.reset();
+      }, 2000);
     });
+
     newsletterEmail.addEventListener('input', () => {
       if(newsletterError.textContent) newsletterError.textContent = '';
     });

@@ -118,22 +118,21 @@
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('contactForm');
   const errorBox = form?.querySelector('.form-error');
+  const emailField = document.getElementById('contactEmail');
+  const nameField = document.getElementById('contactName');
+  const subjectField = document.getElementById('contactSubject');
+  const messageField = document.getElementById('contactMessage');
 
-  if (!form) return;
+  if (!form || !emailField || !nameField || !subjectField || !messageField) return;
+
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   form.addEventListener('submit', (event) => {
     event.preventDefault();
 
-    const fields = [
-      document.getElementById('contactName'),
-      document.getElementById('contactEmail'),
-      document.getElementById('contactSubject'),
-      document.getElementById('contactMessage')
-    ];
-
     let isValid = true;
 
-    fields.forEach((field) => {
+    [nameField, emailField, subjectField, messageField].forEach((field) => {
       if (!field.checkValidity()) {
         isValid = false;
         field.setAttribute('aria-invalid', 'true');
@@ -142,9 +141,14 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
+    if (!emailPattern.test(emailField.value.trim())) {
+      isValid = false;
+      emailField.setAttribute('aria-invalid', 'true');
+    }
+
     if (!isValid) {
       if (errorBox) {
-        errorBox.textContent = 'Please fill out all required fields correctly.';
+        errorBox.textContent = 'Please enter a valid email like jane@example.com.';
       }
       return;
     }
